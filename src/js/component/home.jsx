@@ -8,25 +8,29 @@ const Home = () => {
 
 	const [resultado,setResultado] = useState (""); 
 	const [tareas,setTareas]= useState([]);
-
+	const myStyle = {
+		width: 600,
+		borderRadius: 25,
+	};
 	return (
-		<div className="container-fluid d-flex flex-column align-items-center justify-content-start text-light">
+		<div id="cascada" className="container d-flex flex-column align-items-center justify-content-center text-light" style={myStyle}>
 			<h1>¿Qué tienes que hacer?</h1>
 			<ul>
-				<input class="form-control" type="text" placeholder="Escribe aquí tus tareas :D"
+				<input className="form-control mb-2" type="text" placeholder="Escribe aquí tus tareas :D"
 				onChange={(cambio) => setResultado(cambio.target.value)}
 				value={resultado}
-				onKeyPress={(cambio) => {
+				onKeyDown={(cambio) => {
 
 					if (cambio.key == "Enter") {
 						setTareas(tareas.concat(resultado));
+						setResultado("");
 					}
 				}
 				}
 				/>
 				{tareas.map((nuevo, lista) => (
-					<li>
-						{nuevo} {""} <i class="fas fa-minus-circle" 
+					<li className="row justify-content-between">
+						{nuevo} {""} <i className="fas fa-times col-1 mt-1"
 						onClick={() =>
 							setTareas(
 								tareas.filter(
@@ -34,12 +38,11 @@ const Home = () => {
 									lista != currentIndex
 								)
 							)
-						}>
-						</i>
+						}></i>
 					</li>
 				))}
 			</ul>
-			<div>{tareas.length} cosas por acabar</div>
+			<div className="text-center mb-4 ms-2">{tareas.length} cosas por hacer!</div>
 		</div>
 	);
 };
