@@ -7,11 +7,12 @@ import rigoImage from "../../img/rigo-baby.jpg";
 const Home = () => {
 
 	const [resultado,setResultado] = useState (""); 
-	const [tareas,setTareas]= useState([]);
+	const [tareas,setTareas]= useState([]) ; 
 	const myStyle = {
 		width: 600,
 		borderRadius: 25,
 	};
+
 	return (
 		<div id="cascada" className="container d-flex flex-column align-items-center justify-content-center text-light" style={myStyle}>
 			<h1>¿Qué tienes que hacer?</h1>
@@ -42,7 +43,7 @@ const Home = () => {
 					</li>
 				))}
 			</ul>
-			<div className="text-center mb-4 ms-2">{tareas.length} cosas por hacer!</div>
+			<div className="text-center mb-4 ms-2"></div>
 		</div>
 	);
 };
