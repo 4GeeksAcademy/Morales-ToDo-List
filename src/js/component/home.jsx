@@ -43,7 +43,10 @@ const Home = () => {
 					</li>
 				))}
 			</ul>
-			<div className="text-center mb-4 ms-2">{tareas.length} cosas por hacer!</div>
+			<div className="mb-3">
+				{tareas.length ? null : "Bueno, siempre hay practicar programación ;D"}
+				{tareas.length ? (<p>{tareas.length} cosas por hacer!</p>) : null}
+            </div>
 		</div>
 	);
 };
